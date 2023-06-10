@@ -11,17 +11,14 @@ import {
 import { FunctionComponent } from 'react';
 import useGenres, { Genre } from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
+import useGameQueryStore from '../store';
 
-interface GenreListProps {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenreId?: number;
-}
+interface GenreListProps {}
 
-const GenreList: FunctionComponent<GenreListProps> = ({
-  onSelectGenre,
-  selectedGenreId,
-}) => {
+const GenreList: FunctionComponent<GenreListProps> = () => {
   const { data, isLoading, error } = useGenres();
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
 
   if (error) return null;
 
@@ -43,7 +40,7 @@ const GenreList: FunctionComponent<GenreListProps> = ({
                 objectFit="cover"
               />
               <Button
-                onClick={() => onSelectGenre(genre)}
+                onClick={() => setSelectedGenreId(genre.id)}
                 fontSize="lg"
                 variant="link"
                 fontWeight={genre.id === selectedGenreId ? 'bold' : 'normal'}
