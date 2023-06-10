@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react';
 import { FunctionComponent } from 'react';
 import { Outlet } from 'react-router-dom';
 import NavBar from '../components/NavBar';
@@ -8,7 +9,9 @@ const Layout: FunctionComponent<LayoutProps> = () => {
   return (
     <>
       <NavBar />
-      <Outlet />
+      <Box padding={5}>
+        <Outlet />
+      </Box>
     </>
   );
 };
