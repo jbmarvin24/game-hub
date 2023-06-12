@@ -10,8 +10,9 @@ To get started with GameHub, follow these steps:
 1. Clone this repository to your local machine.
 2. Run `npm install` to install the required dependencies.
 3. Get a RAWG API key at [https://rawg.io/apidocs](https://rawg.io/apidocs). You'll have to create an account first.
-4. Add the API key to `src/services/api-client.ts`.
-5. Run `npm run dev` to start the web server.
+4. Run `cp .env.example .env.local`
+5. Add the API key to `.env.local`.
+6. Run `npm run dev` to start the web server.
 
 ## Description
 
@@ -37,7 +38,7 @@ The backend API used in this project is provided by rawg.io, a platform that off
 
 I would like to express my gratitude to Mosh Hamedani and CodeWithMosh for providing the comprehensive "React 18" course. This course has been instrumental in helping me develop the skills necessary to build this responsive website. I highly recommend this course to anyone interested in learning React 18.
 
-- Course: 
+- Course:
   - [React for Beginners](https://codewithmosh.com/p/ultimate-react-part1)
   - [React: Intermediate Topics](https://codewithmosh.com/p/ultimate-react-part2)
 - Instructor: Mosh Hamedani
